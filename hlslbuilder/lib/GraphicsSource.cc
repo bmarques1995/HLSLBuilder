@@ -237,7 +237,8 @@ std::string HLSLBuilder::GraphicsSource::BuildBlobRelativePath(ShaderStage shade
 	if (it != s_FileEndpointMapper.end())
 		constMapResolver = it->second.data();
 	m_Properties[constMapResolver] = fileOut.str();
-	return fileOut.str();
+	std::filesystem::path registerPath = std::filesystem::path(m_ParentPath) / (fileOut.str());
+	return registerPath.string();
 }
 
 void HLSLBuilder::GraphicsSource::RegisterBlob(ShaderStage shaderStage, OutputTarget outputTarget)

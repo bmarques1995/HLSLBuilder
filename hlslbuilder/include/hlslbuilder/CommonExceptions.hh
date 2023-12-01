@@ -6,6 +6,9 @@
 
 namespace HLSLBuilder
 {
+	/**
+	* This is the root exception, that controls all childs.
+	*/
 	class HLSLB_API HLSLBuilderException : public std::exception
 	{
 	public:
